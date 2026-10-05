@@ -1,0 +1,38 @@
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.env
+.cache/
+backend/.cache/
+*.db
+
+# Flutter
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/build/
+app/.pub-cache/
+app/pubspec.lock
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+*.iml
+
+# Secrets
+deploy/env.local
+**/firebase_options.dart
+**/.secrets/
+**/*-firebase-adminsdk-*.json
+
+# Build artifacts & debug screenshots
+*.apk
+app_screen*.png
+scr*.png

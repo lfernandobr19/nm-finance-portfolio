@@ -1,0 +1,17 @@
+[Unit]
+Description=NM Finance research worker (isolated ARQ queue)
+After=network.target postgresql.service redis.service fiidesk-api.service
+
+[Service]
+Type=simple
+Nice=10
+User=fiidesk
+Group=fiidesk
+WorkingDirectory=/opt/fiidesk/backend
+EnvironmentFile=/etc/fiidesk/env
+ExecStart=/opt/fiidesk/backend/.venv/bin/arq app.workers.arq_settings.ResearchWorkerSettings
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

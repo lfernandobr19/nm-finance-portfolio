@@ -1,0 +1,15 @@
+[Unit]
+Description=NM Finance worker
+After=network-online.target redis.service fiidesk-api.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/fiidesk/backend
+EnvironmentFile=%h/Projects/fiidesk/backend/.env
+ExecStart=%h/Projects/fiidesk/backend/.venv/bin/arq app.workers.arq_settings.WorkerSettings
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

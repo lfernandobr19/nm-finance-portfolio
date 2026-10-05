@@ -1,0 +1,16 @@
+[Unit]
+Description=NM Finance tastytrade Account Streamer (order fills)
+After=network-online.target docker.service redis.service fiidesk-api.service fiidesk-worker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/fiidesk/backend
+EnvironmentFile=%h/Projects/fiidesk/backend/.env
+ExecStartPre=/bin/bash -c 'for i in $(seq 1 90); do (echo > /dev/tcp/127.0.0.1/5432) 2>/dev/null && exit 0; sleep 2; done; exit 1'
+ExecStart=%h/Projects/fiidesk/backend/.venv/bin/python -m app.workers.tastytrade_account_streamer
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

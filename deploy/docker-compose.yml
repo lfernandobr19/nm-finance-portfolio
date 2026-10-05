@@ -1,0 +1,43 @@
+# fiidesk Postgres + Redis.
+# IMPORTANT: volumes are `external: true` so a plain `docker compose up -d`
+# reuses the existing data volumes (deploy_fiidesk_pg / deploy_fiidesk_redis)
+# instead of creating a fresh, empty database. Do NOT rename these volumes.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: fiidesk
+      POSTGRES_PASSWORD: fiidesk
+      POSTGRES_DB: fiidesk
+    ports:
+      - "5432:5432"
+    volumes:
+      - deploy_fiidesk_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fiidesk"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # Keep Postgres from silently corrupting on abrupt host crash.
+    stop_grace_period: 30s
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - deploy_fiidesk_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  deploy_fiidesk_pg:
+    external: true
+  deploy_fiidesk_redis:
+    external: true

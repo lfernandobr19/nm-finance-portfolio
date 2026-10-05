@@ -1,0 +1,18 @@
+[Unit]
+Description=NM Finance day trade DXLink streamer (US session)
+After=network.target redis.service fiidesk-api.service
+
+[Service]
+Type=simple
+User=fiidesk
+Group=fiidesk
+WorkingDirectory=/opt/fiidesk/backend
+EnvironmentFile=/etc/fiidesk/env
+Environment=DAY_TRADE_ENABLED=true
+Environment=DAY_TRADE_STREAMER_ENABLED=true
+ExecStart=/opt/fiidesk/backend/.venv/bin/python -m app.workers.day_trade_streamer
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

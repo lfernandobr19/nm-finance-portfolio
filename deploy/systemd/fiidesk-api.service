@@ -1,0 +1,16 @@
+[Unit]
+Description=NM Finance API
+After=network.target postgresql.service redis.service docker.service
+
+[Service]
+Type=simple
+User=fiidesk
+Group=fiidesk
+WorkingDirectory=/opt/fiidesk/backend
+EnvironmentFile=/etc/fiidesk/env
+ExecStart=/opt/fiidesk/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

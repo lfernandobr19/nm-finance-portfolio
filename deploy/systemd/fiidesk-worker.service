@@ -1,0 +1,16 @@
+[Unit]
+Description=NM Finance scoring worker
+After=network.target postgresql.service redis.service fiidesk-api.service
+
+[Service]
+Type=simple
+User=fiidesk
+Group=fiidesk
+WorkingDirectory=/opt/fiidesk/backend
+EnvironmentFile=/etc/fiidesk/env
+ExecStart=/opt/fiidesk/backend/.venv/bin/arq app.workers.arq_settings.WorkerSettings
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+# Normalize line endings across Windows/Linux.
+# Store LF in the repository, check out with native endings.
+* text=auto
+
+# Scripts must always be LF (shebang breaks with CRLF on Linux).
+*.sh text eol=lf
+*.py text eol=lf
+
+# Windows scripts prefer CRLF.
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# Binary assets: never touch.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.apk binary
+*.db binary

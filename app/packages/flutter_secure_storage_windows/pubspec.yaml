@@ -1,0 +1,23 @@
+name: flutter_secure_storage_windows
+description: Dart-only DPAPI (win32 FFI) implementation of flutter_secure_storage for Windows. Avoids the ATL/MFC C++ toolchain requirement.
+version: 4.2.2
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  ffi: ^2.2.0
+  flutter:
+    sdk: flutter
+  flutter_secure_storage_platform_interface: ^2.0.0
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  win32: ^6.0.1
+
+flutter:
+  plugin:
+    implements: flutter_secure_storage
+    platforms:
+      windows:
+        dartPluginClass: FlutterSecureStorageWindows

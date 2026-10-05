@@ -1,0 +1,11 @@
+[Unit]
+Description=NM Finance Postgres daily backup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/Projects/fiidesk/deploy/backup-postgres.sh
+
+[Install]
+WantedBy=default.target

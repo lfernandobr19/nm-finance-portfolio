@@ -1,0 +1,15 @@
+[Unit]
+Description=NM Finance API (:8010)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/fiidesk/backend
+EnvironmentFile=%h/Projects/fiidesk/backend/.env
+ExecStart=%h/Projects/fiidesk/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8010
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

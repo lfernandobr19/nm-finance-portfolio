@@ -1,0 +1,35 @@
+{
+    "name": "NM Finance",
+    "short_name": "NM Finance",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#1B4D3E",
+    "theme_color": "#1B4D3E",
+    "description": "Sugestões de FII e Swing com aprovação em conta compartilhada",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

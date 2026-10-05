@@ -1,0 +1,15 @@
+[Unit]
+Description=NM Finance tastytrade Account Streamer (order fills)
+After=network-online.target redis.service fiidesk-api.service fiidesk-worker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/fiidesk/backend
+EnvironmentFile=%h/Projects/fiidesk/backend/.env
+ExecStart=%h/Projects/fiidesk/backend/.venv/bin/python -m app.workers.tastytrade_account_streamer
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

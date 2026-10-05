@@ -1,0 +1,10 @@
+[Unit]
+Description=NM Finance watchdog (heartbeat monitor)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Projects/fiidesk/backend
+EnvironmentFile=%h/Projects/fiidesk/backend/.env
+ExecStart=%h/Projects/fiidesk/backend/.venv/bin/python scripts/watchdog.py
