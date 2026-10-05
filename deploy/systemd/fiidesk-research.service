@@ -7,9 +7,9 @@ Type=simple
 Nice=10
 User=fiidesk
 Group=fiidesk
-WorkingDirectory=/opt/fiidesk/backend
+WorkingDirectory=/opt/nm-finance/backend
 EnvironmentFile=/etc/fiidesk/env
-ExecStart=/opt/fiidesk/backend/.venv/bin/arq app.workers.arq_settings.ResearchWorkerSettings
+ExecStart=/opt/nm-finance/backend/.venv/bin/arq app.workers.arq_settings.ResearchWorkerSettings
 Restart=always
 RestartSec=10
 

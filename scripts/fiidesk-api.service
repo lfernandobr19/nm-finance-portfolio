@@ -5,9 +5,9 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=%h/Projects/fiidesk/backend
-EnvironmentFile=%h/Projects/fiidesk/backend/.env
-ExecStart=%h/Projects/fiidesk/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8010
+WorkingDirectory=%h/Projects/nm-finance-portfolio/backend
+EnvironmentFile=%h/Projects/nm-finance-portfolio/backend/.env
+ExecStart=%h/Projects/nm-finance-portfolio/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8010
 Restart=always
 RestartSec=5
 

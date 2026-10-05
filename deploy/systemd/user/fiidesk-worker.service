@@ -5,10 +5,10 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=%h/Projects/fiidesk/backend
-EnvironmentFile=%h/Projects/fiidesk/backend/.env
+WorkingDirectory=%h/Projects/nm-finance-portfolio/backend
+EnvironmentFile=%h/Projects/nm-finance-portfolio/backend/.env
 ExecStartPre=/bin/bash -c 'for i in $(seq 1 90); do (echo > /dev/tcp/127.0.0.1/5432) 2>/dev/null && exit 0; sleep 2; done; exit 1'
-ExecStart=%h/Projects/fiidesk/backend/.venv/bin/arq app.workers.arq_settings.WorkerSettings
+ExecStart=%h/Projects/nm-finance-portfolio/backend/.venv/bin/arq app.workers.arq_settings.WorkerSettings
 Restart=always
 RestartSec=10
 

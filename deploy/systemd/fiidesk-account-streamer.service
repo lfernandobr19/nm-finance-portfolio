@@ -6,9 +6,9 @@ After=network.target redis.service fiidesk-api.service fiidesk-worker.service
 Type=simple
 User=fiidesk
 Group=fiidesk
-WorkingDirectory=/opt/fiidesk/backend
+WorkingDirectory=/opt/nm-finance/backend
 EnvironmentFile=/etc/fiidesk/env
-ExecStart=/opt/fiidesk/backend/.venv/bin/python -m app.workers.tastytrade_account_streamer
+ExecStart=/opt/nm-finance/backend/.venv/bin/python -m app.workers.tastytrade_account_streamer
 Restart=always
 RestartSec=30
 

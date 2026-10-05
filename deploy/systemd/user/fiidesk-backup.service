@@ -5,7 +5,7 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/Projects/fiidesk/deploy/backup-postgres.sh
+ExecStart=%h/Projects/nm-finance-portfolio/deploy/backup-postgres.sh
 
 [Install]
 WantedBy=default.target

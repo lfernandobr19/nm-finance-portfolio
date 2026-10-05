@@ -5,6 +5,6 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-WorkingDirectory=%h/Projects/fiidesk/backend
-EnvironmentFile=%h/Projects/fiidesk/backend/.env
-ExecStart=%h/Projects/fiidesk/backend/.venv/bin/python scripts/watchdog.py
+WorkingDirectory=%h/Projects/nm-finance-portfolio/backend
+EnvironmentFile=%h/Projects/nm-finance-portfolio/backend/.env
+ExecStart=%h/Projects/nm-finance-portfolio/backend/.venv/bin/python scripts/watchdog.py

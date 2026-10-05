@@ -6,11 +6,11 @@ After=network.target redis.service fiidesk-api.service
 Type=simple
 User=fiidesk
 Group=fiidesk
-WorkingDirectory=/opt/fiidesk/backend
+WorkingDirectory=/opt/nm-finance/backend
 EnvironmentFile=/etc/fiidesk/env
 Environment=DAY_TRADE_ENABLED=true
 Environment=DAY_TRADE_STREAMER_ENABLED=true
-ExecStart=/opt/fiidesk/backend/.venv/bin/python -m app.workers.day_trade_streamer
+ExecStart=/opt/nm-finance/backend/.venv/bin/python -m app.workers.day_trade_streamer
 Restart=always
 RestartSec=30
 

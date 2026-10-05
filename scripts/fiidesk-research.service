@@ -6,9 +6,9 @@ Wants=network-online.target
 [Service]
 Type=simple
 Nice=10
-WorkingDirectory=%h/Projects/fiidesk/backend
-EnvironmentFile=%h/Projects/fiidesk/backend/.env
-ExecStart=%h/Projects/fiidesk/backend/.venv/bin/arq app.workers.arq_settings.ResearchWorkerSettings
+WorkingDirectory=%h/Projects/nm-finance-portfolio/backend
+EnvironmentFile=%h/Projects/nm-finance-portfolio/backend/.env
+ExecStart=%h/Projects/nm-finance-portfolio/backend/.venv/bin/arq app.workers.arq_settings.ResearchWorkerSettings
 Restart=always
 RestartSec=10
 
